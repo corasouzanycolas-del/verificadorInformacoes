@@ -1,38 +1,61 @@
-vvv{
+* {
     margin: 0;
-    padding:0;
-
-
-
+    padding: 0;
+    box-sizing: border-box; 
 }
 
- .cabecalho
+body {
     
-    
-      
- backgroun-color 
-
-body{
-
-display:-flex;
-flex-direction: column;
-min-height:100 vh;
-
-
-
-
-
-}
-.cartao-interno{
-
-position: relative;  
-
 }
 
-.cartao-frente, .cartao-verso{
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section{
+display: flex;
+gap: 16px;
+}
+.cabecalho {
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: purple;
+}
 
-position:absolute;
-border-radius: 12px
+.cartao {
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
+}
 
+.cartao-imagem {
+    width: 100%; 
+}
 
+.cartao:hover .cartao-interno 
+    transform rotateY(180deg); 
+
+.cartao-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.cartao-frente, .cartao-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility:
+    border-radiu 12px;
+}
+
+.cartao-verso {
+    transform: rotateY(180deg); 
 }
