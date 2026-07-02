@@ -17,18 +17,68 @@
 </header>
 <main>
 <h2>Descubra a verdade passando o mouse</h2>
+<section>
 <article>
-<div>
-<div>
-<img src=https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/mm1012723121410486.jpg?w=1900&h=2849&quot; alt="pingium>class="cartao imagem"
-<p>Pinguins conseguem voar como passaros</p>
-</div>
-</div>
-<div>
-<img src='https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/mm1012723121410486.jpg?w=1900&h=2849&quot; alt="pingium >class="cartao imagem "
-<p>Pinguins nao voam, mas sao excelentes nadadores</p>
-</div>
-</article>
+<section>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Boa prática para evitar problemas com tamanho de elementos */
+}
+
+body {
+    /* Espaço para futuras estilizações do corpo da página */
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cabecalho {
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: purple;
+}
+
+.cartao {
+    width: 260px;
+    height: 200px;
+    perspective: 1000px; /* Necessário para o efeito 3D do flip funcionar corretamente */
+}
+
+.cartao-imagem {
+    width: 100%; /* Corrigido de 100 para 100% */
+}
+
+.cartao:hover .cartao-interno {
+    transform: rotateY(180deg); /* Corrigido de colchetes [] para parênteses () */
+}
+
+.cartao-interno {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.cartao-frente, .cartao-verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde o lado de trás enquanto ele vira */
+    border-radius: 12px;
+}
+
+.cartao-verso {
+    transform: rotateY(180deg); /* Garante que o verso comece virado */
+}
 </main>
 <footer>
 <p> Projeto feito por nycolas  </p>
